@@ -1,3 +1,20 @@
+#Problem Formulation:
+#We are provided with a game search problem where we have to evalute the given game state and come up with a valid move for the current player in given time.
+#To solve for this, we have implemented Minimax algorithm with alpha beta pruning on sorted child nodes using "alphabeta function".
+#The algorithm is recursive and evaluates the states spaces at various 'depths', alternating between the two players. At each step, the algorithm chooses
+#a successor which maximises the chances of current player winning and on the alternate turn it chooses a successor which minimises the chances
+#of current player winning.
+#
+#Brief descripton of code:
+# - The current state of the board, the current player and the time limit is specified by the user.
+# - The code runs alphabeta function for a fixed depth of 10 for the given board and player.
+# - The function runs recursively with initial values of alpha = -999 and beta = 999.
+# - At each function call, if the time limit is close to finish or the depth reaches zero of if the game has ended, then the current value of the board is
+#   returned. The value of alpha is updated and the best move is returned.
+# - After each end node is evaluated, the values of alpha and beta are updated and the remaining child nodes at a given step are pruned accordingly.
+# - To save on time, the successors at each step are sorted and  evaluated according to increasing/decreasing board values depending on whether the given node
+#   is a Min/Max node.
+
 import sys
 import copy
 import time
